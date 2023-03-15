@@ -65,7 +65,7 @@ class AddMeetingUrlButton extends Component<Props> {
      */
     render() {
         return (
-            <Tooltip content = { this.props.t('calendarSync.addMeetingURL') }>
+            <Tooltip content = { this.props.t('calendarSync.addMeetingURL') } position='bottom'>
                 <div
                     className = 'button add-button'
                     onClick = { this._onClick }

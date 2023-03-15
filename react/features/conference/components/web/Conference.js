@@ -241,7 +241,7 @@ class Conference extends AbstractConference<Props, *> {
                         }
                     </div>
 
-                    {/* { _showPrejoin || _showLobby || (
+                  <span className='toolboxmbl'>  { _showPrejoin || _showLobby || (
                         <>
                             <span
                                 aria-level = { 1 }
@@ -251,7 +251,7 @@ class Conference extends AbstractConference<Props, *> {
                             </span>
                             <Toolbox />
                         </>
-                    )} */}
+                    )}</span>
 
                     {_notificationsVisible && !_isAnyOverlayVisible && (_overflowDrawer
                         ? <JitsiPortal className = 'notification-portal'>

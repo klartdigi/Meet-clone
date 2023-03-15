@@ -76,7 +76,7 @@
 
         .toolbox-content-items {
             // @include ltr;
-            background: #282828;
+            // background: #282828;
             box-shadow: none;
             display: flex;
             justify-content: space-between;
@@ -90,7 +90,15 @@
             width: 95%;
         }
     }
-
+    @media (max-width: 480px) {
+        #new-toolbox {
+            .toolbox-content,
+            .toolbox-content-wrapper,
+            .toolbox-content-items {
+                width: 100% !important;
+            }
+        }
+    }
     @media (max-width: 400px) {
         .device-status-error {
             border-radius: 0;
@@ -106,7 +114,7 @@
 }
 
 #preview {
-    background: url("/images/virtual-background/background-7.jpg");
+    background: url("/images/virtual-background/bgapp.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
     display: flex;
@@ -142,6 +150,16 @@
         video{
             width:65%;
             top:270px;
+        }
+    }
+}
+@media (max-width:"500px"){
+    #preview {
+        video{
+            width:100% !important;
+            top:0px !important;
+            object-fit: cover;
+            height: 64% !important;
         }
     }
 }

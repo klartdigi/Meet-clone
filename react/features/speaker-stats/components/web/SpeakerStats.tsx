@@ -260,7 +260,7 @@ const SpeakerStats = () => {
                                     <Tooltip
                                         content = { t(emotion.translationKey) }
                                         key = { emotion.translationKey }
-                                        position = { 'top' }>
+                                        position = { 'bottom' }>
                                         <Icon
                                             size = { 20 }
                                             src = { emotion.icon } />

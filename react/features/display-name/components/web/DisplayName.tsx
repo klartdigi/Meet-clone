@@ -146,7 +146,8 @@ const DisplayName = ({
     return (
         <Tooltip
             content = { appendSuffix(nameToDisplay, displayNameSuffix) }
-            position = { getIndicatorsTooltipPosition(thumbnailType) }>
+            position =  {'bottom'}  //{ getIndicatorsTooltipPosition(thumbnailType) }
+            >
             <span
                 className = { `displayname ${classes.displayName}` }
                 id = { elementID }

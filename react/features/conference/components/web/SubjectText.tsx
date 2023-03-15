@@ -1,17 +1,17 @@
-import clsx from 'clsx';
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { makeStyles } from 'tss-react/mui';
+import clsx from "clsx";
+import React from "react";
+import { useSelector } from "react-redux";
+import { makeStyles } from "tss-react/mui";
 
-import { getConferenceName } from '../../../base/conference/functions';
-import { withPixelLineHeight } from '../../../base/styles/functions.web';
+import { getConferenceName } from "../../../base/conference/functions";
+import { withPixelLineHeight } from "../../../base/styles/functions.web";
 // eslint-disable-next-line lines-around-comment
 // @ts-ignore
-import { Tooltip } from '../../../base/tooltip';
-import { Toolbox } from '../../../toolbox/components/web';
-import ConferenceTimer from '../ConferenceTimer';
+import { Tooltip } from "../../../base/tooltip";
+import { Toolbox } from "../../../toolbox/components/web";
+import ConferenceTimer from "../ConferenceTimer";
 
-const useStyles = makeStyles()(theme => {
+const useStyles = makeStyles()((theme) => {
     return {
         // container: {
         //     ...withPixelLineHeight(theme.typography.bodyLongRegular),
@@ -28,11 +28,18 @@ const useStyles = makeStyles()(theme => {
         //         display: 'none'
         //     }
         // },
-        mainContainer:{
-            width:"588px",
-            height:"125px",
-            borderRadius:"24px",
+        mainContainer: {
+            width: "588px",
+            height: "125px",
+            borderRadius: "24px",
             backgroundColor: theme.palette.ui01,
+            "@media (max-width: 500px)": {
+                backgroundColor: "transparent",
+                position: "absolute",
+                right: "-93px",
+                height: "80px",
+                top: "30px",
+            },
         },
         container: {
             height: "100%",
@@ -46,21 +53,39 @@ const useStyles = makeStyles()(theme => {
             },
         },
         content: {
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-            whiteSpace: 'nowrap',
-            display:"flex",
-            alignItems:"center",
-            justifyContent:"space-around",
-            margin:"10px 0px 15px 0px"
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            whiteSpace: "nowrap",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-around",
+            margin: "10px 0px 15px 0px",
         },
-        sub:{},
-        subText:{
-            padding:"8px 25px",
-            color:'#000',
-            backgroundColor:"#fff",
-            fontSize:"15px",
-            borderRadius:"10px",
+        toolboxweb: {
+            marginLeft: "20px",
+            "@media (max-width: 500px)": {
+                display: "none",
+            },
+        },
+        sub: {
+            "@media (max-width: 500px)": {
+                display: "none",
+            },
+        },
+
+        subText: {
+            padding: "8px 23px",
+            color: "#000",
+            backgroundColor: "#fff",
+            fontSize: "15px",
+            borderRadius: "10px",
+            "@media (max-width: 500px)": {
+                padding: "3.3px 16px",
+                backgroundColor: " rgba(0, 0, 0, 0.6)",
+                color: " #fff",
+                fontSize: "15px",
+                borderRadius: "6px 0px 0px 6px",
+            },
         },
     };
 });
@@ -74,22 +99,28 @@ const SubjectText = () => {
     const subject = useSelector(getConferenceName);
     const { classes } = useStyles();
 
-    return (<>
-        <div className={classes.mainContainer}>
-        <div className = { classes.container }>
-            <Tooltip
-                content = { subject }
-                position = 'bottom'>
-                <div className = { clsx('subject-text--content', classes.content) }>
-                    <div className={classes.sub}><h3>Subject :</h3></div>
-                    <div className={classes.subText}>{subject}</div>
+    return (
+        <>
+            <div className={classes.mainContainer}>
+                <div className={classes.container}>
+                    <Tooltip content={subject} position="bottom">
+                        <div
+                            className={clsx(
+                                "subject-text--content",
+                                classes.content
+                            )}
+                        >
+                            <div className={classes.sub}>
+                                <h3>Subject :</h3>
+                            </div>
+                            <div className={classes.subText}>{subject}</div>
+                        </div>
+                    </Tooltip>
+                    <div className={classes.toolboxweb}>
+                        <Toolbox />
+                    </div>
                 </div>
-            </Tooltip>
-            <div style={{marginLeft:"20px"}}>
-                    <Toolbox />
-                </div>
-        </div>
-        </div>
+            </div>
         </>
     );
 };

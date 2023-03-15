@@ -13,7 +13,13 @@ const useStyles = makeStyles()((theme) => {
             top:"34px",
             background:"#000",
             padding:"6px 20px",
-            display:"flex"
+            display:"flex",
+            "@media (max-width: 500px)": {
+                background:"rgba(0, 0, 0, 0.6)",
+                right:"-20px",
+                top:"39px",
+                padding:"1px 0px",
+            }
         },
         timer: {
             ...withPixelLineHeight(theme.typography.labelRegular),
@@ -28,6 +34,9 @@ const useStyles = makeStyles()((theme) => {
             "@media (max-width: 300px)": {
                 display: "none",
             },
+            "@media (max-width: 500px)": {
+                backgroundColor:"transparent"
+            }
         },
     };
 });

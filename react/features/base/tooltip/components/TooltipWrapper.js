@@ -41,7 +41,8 @@ function TooltipWrapper({
     return (
         <Tooltip
             content = { content }
-            position = { position }>
+            position = {'bottom'}//{ position }
+            >
             {children}
         </Tooltip>
     );

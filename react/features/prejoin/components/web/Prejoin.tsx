@@ -326,6 +326,14 @@ class Prejoin extends Component<IProps, IState> {
             t,
             videoTrack
         } = this.props;
+        const style:any = {
+ 
+            // Adding media query..
+            '@media (max-width: 500px)': {
+              width: '98% !important',
+              marginTop:"15px !important"
+            },
+          };
         const { _closeDialog, _onDropdownClose, _onJoinButtonClick,
             _onOptionsClick, _setName, _onInputKeyPress } = this;
 
@@ -348,7 +356,9 @@ class Prejoin extends Component<IProps, IState> {
                 videoTrack = { videoTrack }>
                 <div
                     className = 'prejoin-input-area'
-                    data-testid = 'prejoin.screen'>
+                    data-testid = 'prejoin.screen'
+                    style={style}
+                    >
                     {this.showDisplayNameField ? (<Input
                         autoComplete = { 'name' }
                         autoFocus = { true }
@@ -358,7 +368,8 @@ class Prejoin extends Component<IProps, IState> {
                         onKeyPress = { _onInputKeyPress }
                         placeholder = { t('dialog.enterDisplayName') }
                         readOnly = { readOnlyName }
-                        value = { name } />
+                        value = { name } 
+                        />
                     ) : (
                         <div className = 'prejoin-avatar-container'>
                             <Avatar

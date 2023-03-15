@@ -1126,7 +1126,7 @@ class Thumbnail extends Component<IProps, IState> {
                 style = { styles.thumbnail }>
                 {/* this "button" is invisible, only here so that
                 keyboard/screen reader users can pin/unpin */}
-                <Tooltip
+                <Tooltip position='bottom'
                     content = { pinButtonLabel }>
                     <span
                         aria-label = { pinButtonLabel }

@@ -241,7 +241,7 @@ export const commonStyles = (theme: Theme) => {
             },
 
             '&.toggled': {
-                backgroundColor: theme.palette.ui03
+                // backgroundColor: theme.palette.ui03
             },
 
             '&.disabled': {

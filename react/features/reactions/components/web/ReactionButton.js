@@ -56,7 +56,7 @@ class ReactionButton extends AbstractToolbarButton<Props, State> {
      * @static
      */
     static defaultProps = {
-        tooltipPosition: 'top'
+        tooltipPosition: 'bottom'
     };
 
     /**
@@ -133,6 +133,7 @@ class ReactionButton extends AbstractToolbarButton<Props, State> {
      * @returns {ReactElement} The button of this {@code ReactionButton}.
      */
     _renderButton(children) {
+        console.log( this.props.tooltipPosition,"tooltipPosition");
         return (
             <div
                 aria-label = { this.props.accessibilityLabel }
@@ -145,7 +146,9 @@ class ReactionButton extends AbstractToolbarButton<Props, State> {
                 { this.props.tooltip
                     ? <Tooltip
                         content = { this.props.tooltip }
-                        position = { this.props.tooltipPosition }>
+                        position = {"bottom"}//{ this.props.tooltipPosition }
+                        
+                        >
                         { children }
                     </Tooltip>
                     : children }

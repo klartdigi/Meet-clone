@@ -133,7 +133,7 @@ function InviteByEmailSection({ inviteSubject, inviteText, inviteTextiOS }: IPro
                         <Tooltip
                             content = { t(tooltipKey) }
                             key = { idx }
-                            position = 'top'>
+                            position = 'bottom'>
                             <a
                                 aria-label = { t(tooltipKey) }
                                 className = { classes.iconContainer }
@@ -157,7 +157,7 @@ function InviteByEmailSection({ inviteSubject, inviteText, inviteTextiOS }: IPro
                 <div className = { classes.iconRow }>
                     <Tooltip
                         content = { t('addPeople.copyInvite') }
-                        position = 'top'>
+                        position = 'bottom'>
                         <div
                             aria-label = { t('addPeople.copyInvite') }
                             className = { classes.iconContainer }

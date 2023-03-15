@@ -100,7 +100,7 @@ const useStyles = makeStyles()((theme) => {
             backgroundColor: theme.palette.ui01,
             zIndex: 252,
             "@media (max-width: 720px)": {
-                flexDirection: "column",
+                flexDirection: "column-reverse",
             },
         },
         content: {
@@ -116,8 +116,8 @@ const useStyles = makeStyles()((theme) => {
             maxWidth: "55%",
             padding: "24px 0 16px",
             position: "relative",
-            borderRadius:"10px",
-            background:"#000",
+            borderRadius: "10px",
+            background: "#000",
             height: "100%",
             zIndex: 252,
 
@@ -134,18 +134,21 @@ const useStyles = makeStyles()((theme) => {
                 width: "100%",
             },
 
-            "@media (max-width: 400px)": {
-                padding: "16px",
+            "@media screen and (min-width:300px) and (max-width: 500px)": {
+                maxWidth: "100%",
             },
         },
         contentControls: {
             display: "flex",
             flexDirection: "row",
             alignItems: "center",
-            textAlign:"left",
+            textAlign: "left",
             margin: "auto",
             width: "100%",
-            justifyContent:"space-around"
+            justifyContent: "space-around",
+            "@media (max-width: 500px)": {
+                flexDirection: "column",
+            },
         },
         title: {
             ...withPixelLineHeight(theme.typography.heading4),
@@ -153,8 +156,8 @@ const useStyles = makeStyles()((theme) => {
             marginBottom: theme.spacing(3),
             textAlign: "left",
 
-            "@media (max-width: 400px)": {
-                display: "none",
+            "@media (max-width: 500px)": {
+                display: "none !important",
             },
         },
         roomName: {
@@ -166,14 +169,20 @@ const useStyles = makeStyles()((theme) => {
             textOverflow: "ellipsis",
             whiteSpace: "nowrap",
             width: "100%",
-            background:"#282828",
-            marginLeft:theme.spacing(4),
-            padding:"12px"
+            // background:"#282828",
+            marginLeft: theme.spacing(4),
+            padding: "12px",
+            "@media (max-width: 480px)": {
+                marginLeft: '0px',
+                // marginBottom: theme.spacing(4),
+            },
         },
         connectionView: {
             position: "absolute",
-
             width: "100%",
+            "@media (max-width: 480px)": {
+                background: 'black'
+            },
         },
         toolbarControls: {
             display: "flex",
@@ -182,16 +191,42 @@ const useStyles = makeStyles()((theme) => {
             float: "none",
             margin: " 0 auto",
             marginTop: theme.spacing(3),
-            borderRadius:"10px",
+            borderRadius: "10px",
             width: "100%",
             maxWidth: "55%",
             background: "#000",
-            padding:"4px 0px",
+            padding: "4px 0px",
+            justifyContent:"space-around",
             "@media (max-width: 1240px)": {
                 maxWidth: "90%",
             },
+            "@media screen and (min-width:300px) and (max-width: 500px)": {
+                maxWidth: "100%",
+                flexDirection: "column-reverse",
+            },
         },
-        contentControlsContents: {},
+        deviceStatus: {
+            "@media (max-width: 500px)": {
+                display: "none",
+            },
+        },
+        roomNamembl:{
+            "@media (max-width: 500px)": {
+                display: "none",
+            },
+        },
+        deviceStatusWeb:{
+          display:"none"  ,
+          "@media (max-width: 500px)": {
+            display: "flex",
+        },
+        },
+        roomNameWeb:{
+            display:"none"  ,
+            "@media (max-width: 500px)": {
+              display: "flex",
+          },
+        }
     };
 });
 
@@ -207,7 +242,6 @@ const PreMeetingScreen = ({
     videoMuted,
     videoTrack,
 }: IProps) => {
-    
     const { classes } = useStyles();
     const style = _premeetingBackground
         ? {
@@ -221,14 +255,23 @@ const PreMeetingScreen = ({
         <div
             className={clsx("premeeting-screen", classes.container, className)}
         >
+
             <div style={style} className={classes.connectionView}>
                 <div className={classes.content}>
                     <ConnectionStatus />
 
                     <div className={classes.contentControls}>
-                        <div className={classes.contentControlsContents}>
+                        <div>
                             <h1 className={classes.title}>{title}</h1>
-                            {showDeviceStatus && <DeviceStatus />}
+                            <span className={classes.deviceStatus}>
+                                {" "}
+                                {showDeviceStatus && <DeviceStatus />}
+                            </span>
+                           <span className={classes.roomNameWeb}> {_roomName && (
+                                <span className={classes.roomName}>
+                                    {_roomName}
+                                </span>
+                            )}</span>
                         </div>
 
                         {children}
@@ -238,10 +281,16 @@ const PreMeetingScreen = ({
                 </div>
 
                 <div className={classes.toolbarControls}>
-                    {_roomName && (
+                  <span className={classes.roomNamembl}>  {_roomName && (
                         <span className={classes.roomName}>{_roomName}</span>
-                    )}
-                    {_buttons.length && <Toolbox toolbarButtons={_buttons} />}
+                    )}</span>
+                  <span className={classes.deviceStatusWeb}>  {showDeviceStatus && <DeviceStatus />}</span>
+                    <span >
+                        {" "}
+                        {_buttons.length && (
+                            <Toolbox toolbarButtons={_buttons} />
+                        )}
+                    </span>
                 </div>
             </div>
 

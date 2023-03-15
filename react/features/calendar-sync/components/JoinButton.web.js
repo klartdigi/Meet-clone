@@ -57,7 +57,7 @@ class JoinButton extends Component<Props> {
         const { t } = this.props;
 
         return (
-            <Tooltip
+            <Tooltip position='bottom'
                 content = { t('calendarSync.joinTooltip') }>
                 <div
                     className = 'button join-button'
