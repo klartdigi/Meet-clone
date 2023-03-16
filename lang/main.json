@@ -112,7 +112,8 @@
         },
         "title": "Chat",
         "titleWithPolls": "Chat and Polls",
-        "you": "you"
+        "you": "you",
+        "subject":"Subject"
     },
     "chromeExtensionBanner": {
         "buttonText": "Install Chrome Extension",

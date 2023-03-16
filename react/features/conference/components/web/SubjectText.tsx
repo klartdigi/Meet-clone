@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { makeStyles } from "tss-react/mui";
 
@@ -74,7 +75,7 @@ const useStyles = makeStyles()((theme) => {
         },
 
         subText: {
-            padding: "8px 23px",
+            padding: "8px 65px",
             color: "#000",
             backgroundColor: "#fff",
             fontSize: "15px",
@@ -98,7 +99,8 @@ const useStyles = makeStyles()((theme) => {
 const SubjectText = () => {
     const subject = useSelector(getConferenceName);
     const { classes } = useStyles();
-
+    const { t } = useTranslation()
+    
     return (
         <>
             <div className={classes.mainContainer}>
@@ -111,7 +113,7 @@ const SubjectText = () => {
                             )}
                         >
                             <div className={classes.sub}>
-                                <h3>Subject :</h3>
+                                <h3>{t('chat.subject')} :</h3>
                             </div>
                             <div className={classes.subText}>{subject}</div>
                         </div>

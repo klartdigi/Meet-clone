@@ -112,7 +112,8 @@
         },
         "title": "Chatten",
         "titleWithPolls": "Chatten und Umfragen",
-        "you": "Sie"
+        "you": "Sie",
+        "subject":"Thema"
     },
     "chromeExtensionBanner": {
         "buttonText": "Chrome-Erweiterung installieren",

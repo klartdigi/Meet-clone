@@ -88,6 +88,8 @@
         .toolbox-content-items {
             box-sizing: border-box;
             width: 95%;
+            margin-right: 55px;
+            margin-left: 25px;
         }
     }
     @media (max-width: 480px) {
@@ -96,6 +98,7 @@
             .toolbox-content-wrapper,
             .toolbox-content-items {
                 width: 100% !important;
+                margin: 0 auto;
             }
         }
     }
@@ -114,7 +117,7 @@
 }
 
 #preview {
-    background: url("/images/virtual-background/bgapp.jpg");
+    background: url("/images/virtual-background/featureApp.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
     display: flex;
