@@ -113,7 +113,7 @@
         "title": "Chatten",
         "titleWithPolls": "Chatten und Umfragen",
         "you": "Sie",
-        "subject":"Thema"
+        "subject":"Konferenz-Name"
     },
     "chromeExtensionBanner": {
         "buttonText": "Chrome-Erweiterung installieren",

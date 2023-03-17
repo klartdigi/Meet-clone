@@ -232,6 +232,7 @@ const styles = (theme: Theme) => {
             position: 'relative' as const,
             marginTop: 0,
             right: 'auto',
+            height: 'auto',
             padding: `${theme.spacing(2)} ${theme.spacing(1)}`,
             marginLeft: theme.spacing(1),
             marginRight: theme.spacing(1),

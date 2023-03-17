@@ -113,7 +113,7 @@
         "title": "Chat",
         "titleWithPolls": "Chat and Polls",
         "you": "you",
-        "subject":"Subject"
+        "subject":"Conference Name"
     },
     "chromeExtensionBanner": {
         "buttonText": "Install Chrome Extension",

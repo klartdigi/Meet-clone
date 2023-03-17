@@ -127,7 +127,8 @@ const styles = () => {
             marginTop: 0,
             right: 'auto',
             padding: '0',
-            minWidth: '200px'
+            minWidth: '200px',
+            height: 'auto'
         },
 
         flipText: {

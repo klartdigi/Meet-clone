@@ -15,8 +15,7 @@
         "searchPeople": "Search for people",
         "searchPeopleAndNumbers": "Search for people or add their phone numbers",
         "telephone": "Telephone: {{number}}",
-        "title": "Invite people to this meeting",
-        "subject":"Subject"
+        "title": "Invite people to this meeting"
     },
     "audioDevices": {
         "bluetooth": "Bluetooth",
@@ -62,7 +61,7 @@
         "title": "Chat",
         "titleWithPolls": "Chat",
         "you": "Subject",
-        "subject":"Subject"
+        "subject":"Conference Name"
     },
     "chromeExtensionBanner": {
         "buttonText": "",

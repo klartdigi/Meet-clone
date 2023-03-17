@@ -75,7 +75,7 @@ const useStyles = makeStyles()((theme) => {
         },
 
         subText: {
-            padding: "8px 65px",
+            padding: "8px 50px",
             color: "#000",
             backgroundColor: "#fff",
             fontSize: "15px",
