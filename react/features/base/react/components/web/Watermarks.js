@@ -2,11 +2,11 @@
 
 import React, { Component } from 'react';
 
-import logo from '../../../../../../images/virtual-background/FutureApp-Logo.svg';
+// import logonew from '../../../../../../images/virtual-background/logoAB.png';
+
 import { isVpaasMeeting } from '../../../../jaas/functions';
 import { translate } from '../../../i18n';
 import { connect } from '../../../redux';
-
 declare var interfaceConfig: Object;
 
 /**
@@ -172,9 +172,9 @@ class Watermarks extends Component<Props, State> {
 
         if (_showJitsiWatermark) {
             const style = {
-                backgroundImage: 'url(../../../../../../images/virtual-background/futurelogonew.png)',
-                maxWidth: '30%',
-                maxHeight: '30%',
+                backgroundImage: 'url(../../../../../../images/virtual-background/logoAB.png)',
+                // maxWidth: '30%',
+                // maxHeight: '30%',
                 position: _logoLink ? 'absolute' : 'absolute'
             };
 
@@ -190,6 +190,7 @@ class Watermarks extends Component<Props, State> {
                         href = { _logoLink }
                         target = '_new'>
                         { reactElement }
+                    
                     </a>
                 );
             }

@@ -106,43 +106,54 @@ button,
 form {
     display: block;
 }
-@media (max-width: 500px) {
-    .watermark{
-        width: 87%;
-    }
-}
+// @media (max-width: 500px) {
+//     .watermark{
+//         width: 87%;
+//     }
+// }
 .watermark {
     display: block;
-    position: absolute;
+    position: relative;
     top: 15;
-    width: $watermarkWidth;
-    height: $watermarkHeight;
+    // width: $watermarkWidth;
+    // height: $watermarkHeight;
     background-size: contain;
     background-repeat: no-repeat;
     z-index: $zindex2;
 }
 
 .leftwatermark {
-    left: 23px;
-    top: 31px;
+    left: 34px;
+    top: 18px;
     background-position: center left;
     background-repeat: no-repeat;
     background-size: contain;
-    width:53%;
+    // width:55%;
+    // height:55%;
+    width: 205px;
+    height: 100px;
+
 }
 @media (max-width: 500px) {
     .leftwatermark{
         left: 15px;
     top: 27px;
-    width: 100%;
+    // width: 100%;
+    }
+}
+@media (max-width: 1240px) {
+    .leftwatermarknomargin{
+        left: 11px !important;
     }
 }
 .leftwatermarknomargin {
     background-position: center left;
     background-repeat: no-repeat;
     background-size: contain;
-    left: -109px;
+    left: -147px;
     top: 4px;
+    max-width: 205px;
+    max-height: 73px;
 }
 
 .rightwatermark {
