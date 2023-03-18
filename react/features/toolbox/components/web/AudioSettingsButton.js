@@ -134,10 +134,6 @@ class AudioSettingsButton extends Component<Props> {
             !hasPermissions ||
             isDisabled ||
             !JitsiMeetJS.mediaDevices.isMultipleAudioInputSupported();
-        console.log(
-            JitsiMeetJS.mediaDevices.isMultipleAudioInputSupported(),
-            "JitsiMeetJS.mediaDevices.isMultipleAudioInputSupported()"
-        );
         return visible ? (
             <AudioSettingsPopup>
                 <ToolboxButtonWithIcon

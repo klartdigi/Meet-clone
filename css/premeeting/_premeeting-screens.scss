@@ -115,7 +115,7 @@
         }
     }
 }
-@media (max-width: 500px) {
+@media (max-width: 1240px) {
     #preview {
         background: url(/images/virtual-background/resizescreen1.svg) !important;
         background-repeat: no-repeat !important;
@@ -123,9 +123,9 @@
     }
 }
 #preview {
-    background: url(/images/virtual-background/resizescreen1.png);
+    background: url(/images/virtual-background/9.svg);
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: cover;
     display: flex;
     align-items: center;
     justify-content: end;

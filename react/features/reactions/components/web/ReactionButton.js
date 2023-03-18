@@ -133,7 +133,6 @@ class ReactionButton extends AbstractToolbarButton<Props, State> {
      * @returns {ReactElement} The button of this {@code ReactionButton}.
      */
     _renderButton(children) {
-        console.log( this.props.tooltipPosition,"tooltipPosition");
         return (
             <div
                 aria-label = { this.props.accessibilityLabel }

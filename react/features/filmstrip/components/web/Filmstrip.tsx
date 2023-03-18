@@ -688,7 +688,6 @@ class Filmstrip extends PureComponent <IProps, IState> {
             || isNaN(_filmstripWidth)) {
             return null;
         }
-console.log(_filmstripHeight,"_filmstripHeight");
 
         if (_currentLayout === LAYOUTS.TILE_VIEW || _verticalViewGrid || filmstripType !== FILMSTRIP_TYPE.MAIN) {
             return (
