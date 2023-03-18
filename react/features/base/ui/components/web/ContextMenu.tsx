@@ -132,7 +132,7 @@ const useStyles = makeStyles()(theme => {
             boxShadow: '0px 1px 2px rgba(41, 41, 41, 0.25)',
             color: theme.palette.text01,
             ...withPixelLineHeight(theme.typography.bodyShortRegular),
-            marginTop: `${(participantsPaneTheme.panePadding * 2) + theme.typography.bodyShortRegular.fontSize}px`,
+             marginTop:'0px', //`${(participantsPaneTheme.panePadding * 2) + theme.typography.bodyShortRegular.fontSize}px`,
             position: 'absolute',
             right: `${participantsPaneTheme.panePadding}px`,
             top: 0,

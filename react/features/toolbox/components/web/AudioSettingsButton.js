@@ -1,29 +1,28 @@
 // @flow
 
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import { isMobileBrowser } from '../../../base/environment/utils';
-import { translate } from '../../../base/i18n';
-import { IconArrowUp } from '../../../base/icons';
-import JitsiMeetJS from '../../../base/lib-jitsi-meet/_';
-import { connect } from '../../../base/redux';
-import { ToolboxButtonWithIcon } from '../../../base/toolbox/components';
-import { AudioSettingsPopup, toggleAudioSettings } from '../../../settings';
-import { getAudioSettingsVisibility } from '../../../settings/functions';
-import { isAudioSettingsButtonDisabled } from '../../functions';
-import AudioMuteButton from '../AudioMuteButton';
+import { isMobileBrowser } from "../../../base/environment/utils";
+import { translate } from "../../../base/i18n";
+import { IconArrowUp } from "../../../base/icons";
+import JitsiMeetJS from "../../../base/lib-jitsi-meet/_";
+import { connect } from "../../../base/redux";
+import { ToolboxButtonWithIcon } from "../../../base/toolbox/components";
+import { AudioSettingsPopup, toggleAudioSettings } from "../../../settings";
+import { getAudioSettingsVisibility } from "../../../settings/functions";
+import { isAudioSettingsButtonDisabled } from "../../functions";
+import AudioMuteButton from "../AudioMuteButton";
 
 type Props = {
-
     /**
      * The button's key.
      */
-     buttonKey?: string,
+    buttonKey?: string,
 
     /**
      * External handler for click action.
      */
-     handleClick: Function,
+    handleClick: Function,
 
     /**
      * Indicates whether audio permissions have been granted or denied.
@@ -90,7 +89,7 @@ class AudioSettingsButton extends Component<Props> {
      * @returns {void}
      */
     _onEscClick(event) {
-        if (event.key === 'Escape' && this.props.isOpen) {
+        if (event.key === "Escape" && this.props.isOpen) {
             event.preventDefault();
             event.stopPropagation();
             this._onClick();
@@ -106,8 +105,13 @@ class AudioSettingsButton extends Component<Props> {
      */
     _onClick() {
         const { onAudioOptionsClick } = this.props;
-        const querySelect =  document.querySelectorAll('.Popover')
-        querySelect.length && document.querySelectorAll('.Popover')[0].remove()
+        setTimeout(() => {
+            const querySelect = document.querySelectorAll(".Popover");
+            querySelect.length &&
+                document
+                    .querySelectorAll(".Popover")
+                    [querySelect.length == 2 ? 0 : 1].remove();
+        });
         onAudioOptionsClick();
     }
 
@@ -117,34 +121,48 @@ class AudioSettingsButton extends Component<Props> {
      * @inheritdoc
      */
     render() {
-        const { hasPermissions, isDisabled, visible, isOpen, buttonKey, notifyMode, t } = this.props;
-        const settingsDisabled = !hasPermissions
-            || isDisabled
-            || !JitsiMeetJS.mediaDevices.isMultipleAudioInputSupported();
-            console.log(JitsiMeetJS.mediaDevices.isMultipleAudioInputSupported(),"JitsiMeetJS.mediaDevices.isMultipleAudioInputSupported()");
+        const {
+            hasPermissions,
+            isDisabled,
+            visible,
+            isOpen,
+            buttonKey,
+            notifyMode,
+            t,
+        } = this.props;
+        const settingsDisabled =
+            !hasPermissions ||
+            isDisabled ||
+            !JitsiMeetJS.mediaDevices.isMultipleAudioInputSupported();
+        console.log(
+            JitsiMeetJS.mediaDevices.isMultipleAudioInputSupported(),
+            "JitsiMeetJS.mediaDevices.isMultipleAudioInputSupported()"
+        );
         return visible ? (
             <AudioSettingsPopup>
                 <ToolboxButtonWithIcon
-                    ariaControls = 'audio-settings-dialog'
-                    ariaExpanded = { isOpen }
-                    ariaHasPopup = { true }
-                    ariaLabel = { t('toolbar.audioSettings') }
-                    buttonKey = { buttonKey }
-                    icon = { IconArrowUp }
-                    iconDisabled = {  settingsDisabled }
-                    iconId = 'audio-settings-button'
-                    iconTooltip = { t('toolbar.audioSettings') }
-                    notifyMode = { notifyMode }
-                    onIconClick = { this._onClick }
-                    onIconKeyDown = { this._onEscClick }>
+                    ariaControls="audio-settings-dialog"
+                    ariaExpanded={isOpen}
+                    ariaHasPopup={true}
+                    ariaLabel={t("toolbar.audioSettings")}
+                    buttonKey={buttonKey}
+                    icon={IconArrowUp}
+                    iconDisabled={settingsDisabled}
+                    iconId="audio-settings-button"
+                    iconTooltip={t("toolbar.audioSettings")}
+                    notifyMode={notifyMode}
+                    onIconClick={this._onClick}
+                    onIconKeyDown={this._onEscClick}
+                >
                     <AudioMuteButton
-                        buttonKey = { buttonKey }
-                        notifyMode = { notifyMode } />
+                        buttonKey={buttonKey}
+                        notifyMode={notifyMode}
+                    />
                 </ToolboxButtonWithIcon>
             </AudioSettingsPopup>
-        ) : <AudioMuteButton
-            buttonKey = { buttonKey }
-            notifyMode = { notifyMode } />;
+        ) : (
+            <AudioMuteButton buttonKey={buttonKey} notifyMode={notifyMode} />
+        );
     }
 }
 
@@ -155,22 +173,21 @@ class AudioSettingsButton extends Component<Props> {
  * @returns {Object}
  */
 function mapStateToProps(state) {
-    const { permissions = {} } = state['features/base/devices'];
-    const { isNarrowLayout } = state['features/base/responsive-ui'];
+    const { permissions = {} } = state["features/base/devices"];
+    const { isNarrowLayout } = state["features/base/responsive-ui"];
 
     return {
         hasPermissions: permissions.audio,
         isDisabled: isAudioSettingsButtonDisabled(state),
         isOpen: getAudioSettingsVisibility(state),
-        visible: !isMobileBrowser() && !isNarrowLayout
+        visible: !isMobileBrowser() && !isNarrowLayout,
     };
 }
 
 const mapDispatchToProps = {
-    onAudioOptionsClick: toggleAudioSettings
+    onAudioOptionsClick: toggleAudioSettings,
 };
 
-export default translate(connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(AudioSettingsButton));
+export default translate(
+    connect(mapStateToProps, mapDispatchToProps)(AudioSettingsButton)
+);
