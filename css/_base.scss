@@ -136,15 +136,16 @@ form {
 }
 @media (max-width: 500px) {
     .leftwatermark{
-        left: 120px;
-    top: 27px;
+        left: 16px;
+    top: 40px;
     height: 46px;
     // width: 100%;
     }
 }
 @media (max-width: 1240px) {
     .leftwatermarknomargin{
-        left: 139px !important;
+        left: 7px !important;
+        top: 4px !important;
     }
 }
 .leftwatermarknomargin {
