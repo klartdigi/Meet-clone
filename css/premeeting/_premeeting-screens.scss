@@ -115,9 +115,15 @@
         }
     }
 }
-
+// @media (max-width: 500px) {
+//     #preview {
+//         background: url(/images/virtual-background/resizescreen1.svg) !important;
+//         background-repeat: no-repeat !important;
+//         background-size: contain !important;
+//     }
+// }
 #preview {
-    background: url(/images/virtual-background/tab.png);
+    background: url(/images/virtual-background/future.jpg);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     display: flex;
