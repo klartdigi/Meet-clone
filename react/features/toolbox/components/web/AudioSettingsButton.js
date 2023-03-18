@@ -106,7 +106,8 @@ class AudioSettingsButton extends Component<Props> {
      */
     _onClick() {
         const { onAudioOptionsClick } = this.props;
-
+        const querySelect =  document.querySelectorAll('.Popover')
+        querySelect.length && document.querySelectorAll('.Popover')[0].remove()
         onAudioOptionsClick();
     }
 
@@ -120,7 +121,7 @@ class AudioSettingsButton extends Component<Props> {
         const settingsDisabled = !hasPermissions
             || isDisabled
             || !JitsiMeetJS.mediaDevices.isMultipleAudioInputSupported();
-
+            console.log(JitsiMeetJS.mediaDevices.isMultipleAudioInputSupported(),"JitsiMeetJS.mediaDevices.isMultipleAudioInputSupported()");
         return visible ? (
             <AudioSettingsPopup>
                 <ToolboxButtonWithIcon
@@ -130,7 +131,7 @@ class AudioSettingsButton extends Component<Props> {
                     ariaLabel = { t('toolbar.audioSettings') }
                     buttonKey = { buttonKey }
                     icon = { IconArrowUp }
-                    iconDisabled = { settingsDisabled }
+                    iconDisabled = {  settingsDisabled }
                     iconId = 'audio-settings-button'
                     iconTooltip = { t('toolbar.audioSettings') }
                     notifyMode = { notifyMode }

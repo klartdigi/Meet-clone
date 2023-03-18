@@ -124,7 +124,7 @@ export default function ToolboxButtonWithIconPopup(props: Props) {
                     headingLabel = { ariaLabel }
                     onPopoverClose = { onPopoverClose }
                     onPopoverOpen = { onPopoverOpen }
-                    position = 'top'
+                    position = 'bottom'
                     visible = { visible }>
                     <Icon
                         { ...iconProps }

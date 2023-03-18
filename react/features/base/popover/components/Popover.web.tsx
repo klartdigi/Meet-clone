@@ -209,7 +209,6 @@ class Popover extends Component<IProps, IState> {
             visible,
             trigger
         } = this.props;
-
         if (overflowDrawer) {
             return (
                 <div
@@ -228,7 +227,7 @@ class Popover extends Component<IProps, IState> {
                 </div>
             );
         }
-
+        
         return (
             <div
                 className = { className }

@@ -688,6 +688,7 @@ class Filmstrip extends PureComponent <IProps, IState> {
             || isNaN(_filmstripWidth)) {
             return null;
         }
+console.log(_filmstripHeight,"_filmstripHeight");
 
         if (_currentLayout === LAYOUTS.TILE_VIEW || _verticalViewGrid || filmstripType !== FILMSTRIP_TYPE.MAIN) {
             return (
@@ -695,7 +696,7 @@ class Filmstrip extends PureComponent <IProps, IState> {
                     className = 'filmstrip__videos remote-videos'
                     columnCount = { _columns }
                     columnWidth = { _thumbnailWidth + TILE_HORIZONTAL_MARGIN }
-                    height = { _filmstripHeight }
+                    height = {     _filmstripHeight }
                     initialScrollLeft = { 0 }
                     initialScrollTop = { 0 }
                     itemData = {{ filmstripType }}

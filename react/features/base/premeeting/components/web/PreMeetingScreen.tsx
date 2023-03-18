@@ -201,7 +201,7 @@ const useStyles = makeStyles()((theme) => {
                 maxWidth: "90%",
                 justifyContent:"space-around",
             },
-            "@media screen and (min-width:300px) and (max-width: 500px)": {
+            "@media (max-width: 500px)": {
                 maxWidth: "100%",
                 flexDirection: "column-reverse",
                 justifyContent:"space-around",
@@ -256,7 +256,7 @@ const PreMeetingScreen = ({
               backgroundSize: "cover",
           }
         : {};
-
+const width = window.innerWidth
     return (
         <div
             className={clsx("premeeting-screen", classes.container, className)}
@@ -289,6 +289,7 @@ const PreMeetingScreen = ({
                 <div className={classes.toolbarControls}>
                   <span className={classes.roomNamembl}>  {_roomName && (
                         <span className={classes.roomName}>{_roomName}</span>
+                        
                     )}</span>
                   <span className={classes.deviceStatusWeb}>  {showDeviceStatus && <DeviceStatus />}</span>
                     <span className={classes.toolallign}>
@@ -299,7 +300,6 @@ const PreMeetingScreen = ({
                     </span>
                 </div>
             </div>
-
             <Preview videoMuted={videoMuted} videoTrack={videoTrack} />
         </div>
     );

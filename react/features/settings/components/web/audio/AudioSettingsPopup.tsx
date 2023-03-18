@@ -1,4 +1,5 @@
-import React, { ReactNode } from 'react';
+// import { Popover } from '@mui/material';
+import React, { ReactNode, useState } from 'react';
 import { connect } from 'react-redux';
 
 import { IReduxState } from '../../../../app/types';
@@ -74,12 +75,13 @@ function AudioSettingsPopup({
                     microphoneDevices = { microphoneDevices }
                     outputDevices = { outputDevices }
                     setAudioInputDevice = { setAudioInputDevice }
-                    setAudioOutputDevice = { setAudioOutputDevice } /> }
-                headingId = 'audio-settings-button'
+                    setAudioOutputDevice = { setAudioOutputDevice } />}
+                headingId = 'audio-setting'
                 onPopoverClose = { onClose }
-                position = { popupPlacement }
+                position = 'bottom'
                 trigger = 'click'
                 visible = { isOpen }>
+                     
                 {children}
             </Popover>
         </div>

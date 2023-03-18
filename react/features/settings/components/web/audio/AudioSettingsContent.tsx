@@ -296,7 +296,7 @@ class AudioSettingsContent extends Component<IProps, State> {
 
         return (
             <ContextMenu
-                aria-labelledby = 'audio-settings-button'
+                aria-labelledby = 'audio-settings'
                 className = 'audio-preview-content'
                 hidden = { false }
                 id = 'audio-settings-dialog'
