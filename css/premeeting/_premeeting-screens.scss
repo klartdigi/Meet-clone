@@ -115,15 +115,15 @@
         }
     }
 }
-// @media (max-width: 500px) {
-//     #preview {
-//         background: url(/images/virtual-background/resizescreen1.svg) !important;
-//         background-repeat: no-repeat !important;
-//         background-size: contain !important;
-//     }
-// }
+@media (max-width: 500px) {
+    #preview {
+        background: url(/images/virtual-background/resizescreen1.svg) !important;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+    }
+}
 #preview {
-    background: url(/images/virtual-background/future.jpg);
+    background: url(/images/virtual-background/resizescreen1.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     display: flex;
