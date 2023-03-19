@@ -14,7 +14,7 @@ const useStyles = makeStyles()((theme) => {
             background:"#000",
             padding:"6px 20px",
             display:"flex",
-            "@media (max-width: 500px)": {
+            "@media (max-width: 1024px)": {
                 background:"rgba(0, 0, 0, 0.6)",
                 right:"-20px",
                 top:"39px",

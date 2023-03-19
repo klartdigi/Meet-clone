@@ -102,6 +102,14 @@
             }
         }
     }
+    @media screen and (min-device-width: 769px) and (max-device-width: 1350px) {
+        .toolbox-content,
+        .toolbox-content-wrapper,
+        .toolbox-content-items {
+            margin-right: 4px !important;
+            margin-left: 19px !important;
+        }
+    }
     @media (max-width: 400px) {
         .device-status-error {
             border-radius: 0;

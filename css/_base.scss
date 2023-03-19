@@ -134,6 +134,11 @@ form {
     height: 63px;
 
 }
+@media screen and (min-device-width: 1024px) and (max-device-width: 1240px) {
+    .leftwatermark {
+        left: 5px !important;
+    }
+}
 @media (max-width: 500px) {
     .leftwatermark{
         left: 16px;
@@ -145,6 +150,12 @@ form {
 @media (max-width: 1240px) {
     .leftwatermarknomargin{
         left: 7px !important;
+        top: 4px !important;
+    }
+}
+@media screen and (min-device-width: 1241px) and (max-device-width: 1360px) {
+    .leftwatermarknomargin{
+        left: -130px !important;
         top: 4px !important;
     }
 }
