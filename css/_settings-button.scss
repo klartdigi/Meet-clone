@@ -49,6 +49,7 @@
 
     & > svg {
         fill: #fff;
+        transform: rotate(180deg);
     }
 
     &--disabled {

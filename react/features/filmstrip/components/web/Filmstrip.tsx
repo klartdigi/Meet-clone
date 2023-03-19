@@ -725,7 +725,8 @@ class Filmstrip extends PureComponent <IProps, IState> {
             overscanCount: 1,
             width: _filmstripWidth,
             style: {
-                willChange: 'auto'
+                willChange: 'auto',
+                marginBottom:"16px",
             }
         };
 
