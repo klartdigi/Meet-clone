@@ -99,7 +99,7 @@ const useStyles = makeStyles()((theme) => {
             flexDiredtion: "column",
             backgroundColor: theme.palette.ui01,
             zIndex: 252,
-            "@media (max-width: 1023px)": {
+            "@media (max-width: 1090px)": {
                 flexDirection: "column-reverse",
             },
         },
@@ -125,9 +125,9 @@ const useStyles = makeStyles()((theme) => {
                 height: "auto",
                 margin: "0 auto",
             },
-            // "@media (max-width: 1240px)": {
-            //     maxWidth: "90%",
-            // },
+            "@media screen and (min-width:720px) and (max-width: 1090px)": {
+                maxWidth: "100%",
+            },
             // mobile phone landscape
             "@media (max-width: 420px)": {
                 padding: "16px 16px 0 16px",
@@ -146,7 +146,7 @@ const useStyles = makeStyles()((theme) => {
             margin: "auto",
             width: "96%",
             justifyContent: "space-around",
-            "@media (max-width: 1023px)": {
+            "@media (max-width: 1090px)": {
                 flexDirection: "column",
             },
             "@media screen and (min-width:1350px) and (max-width: 2500px)": {
@@ -159,7 +159,7 @@ const useStyles = makeStyles()((theme) => {
             marginBottom: theme.spacing(3),
             textAlign: "left",
 
-            "@media (max-width: 1023px)": {
+            "@media (max-width: 1090px)": {
                 display: "none !important",
             },
         },
@@ -175,7 +175,7 @@ const useStyles = makeStyles()((theme) => {
             // background:"#282828",
             marginLeft: theme.spacing(4),
             padding: "12px",
-            "@media (max-width: 1023px)": {
+            "@media (max-width: 1090px)": {
                 marginLeft: '0px',
                 // marginBottom: theme.spacing(4),
             },
@@ -183,7 +183,7 @@ const useStyles = makeStyles()((theme) => {
         connectionView: {
             position: "absolute",
             width: "100%",
-            "@media (max-width: 1023px)": {
+            "@media (max-width: 1090px)": {
                 background: 'black'
             },
         },
@@ -204,32 +204,32 @@ const useStyles = makeStyles()((theme) => {
             //     maxWidth: "90%",
             //     justifyContent:"space-around",
             // },
-            "@media (max-width: 1023px)": {
+            "@media (max-width: 1090px)": {
                 maxWidth: "100%",
                 flexDirection: "column-reverse",
                 justifyContent:"space-around",
             },
         },
         deviceStatus: {
-            "@media (max-width: 1023px)": {
+            "@media (max-width: 1090px)": {
                 display: "none",
             },
         },
         roomNamembl:{
-            width:"100%",
-            "@media (max-width: 1023px)": {
+            // width:"100%",
+            "@media (max-width: 1090px)": {
                 display: "none",
             },
         },
         deviceStatusWeb:{
           display:"none"  ,
-          "@media (max-width: 1023px)": {
+          "@media (max-width: 1090px)": {
             display: "flex",
         },
         },
         roomNameWeb:{
             display:"none"  ,
-            "@media (max-width:1023px)": {
+            "@media (max-width:1090px)": {
               display: "flex",
           },
         },

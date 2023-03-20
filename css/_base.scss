@@ -147,9 +147,15 @@ form {
     // width: 100%;
     }
 }
-@media (max-width: 1240px) {
+@media (max-width: 1024px) {
     .leftwatermarknomargin{
         left: 7px !important;
+        top: 4px !important;
+    }
+}
+@media screen and (min-device-width: 1025px) and (max-device-width: 1240px) {
+    .leftwatermarknomargin{
+        left: -71px !important;
         top: 4px !important;
     }
 }

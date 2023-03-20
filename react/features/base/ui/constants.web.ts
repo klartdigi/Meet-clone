@@ -273,6 +273,9 @@ export const commonStyles = (theme: Theme) => {
 
             '& > div': {
                 marginRight: theme.spacing(2),
+                // "@media screen and (min-width:1300px) and (max-width: 2500px)": {
+                //     marginRight: theme.spacing(4),
+                // },
 
                 '&:last-of-type': {
                     marginRight: 0
