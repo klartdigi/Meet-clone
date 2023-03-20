@@ -216,7 +216,8 @@ const useStyles = makeStyles()((theme) => {
             },
         },
         roomNamembl:{
-            // width:"100%",
+             width:"100%",
+             textAlign:"center",
             "@media (max-width: 1090px)": {
                 display: "none",
             },
@@ -234,7 +235,7 @@ const useStyles = makeStyles()((theme) => {
           },
         },
         toolallign:{
-            // marginRight:"75px"
+           width:'100%'
         },
     };
 });
