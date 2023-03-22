@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, { ReactNode } from "react";
+import React, { ReactNode, useEffect } from "react";
 import { connect } from "react-redux";
 import { makeStyles } from "tss-react/mui";
 
@@ -260,7 +260,16 @@ const PreMeetingScreen = ({
               backgroundSize: "cover",
           }
         : {};
-const width = window.innerWidth
+        let videoNodeEl = document.querySelectorAll(".video-preview-container")
+        if(videoNodeEl.length == 2){
+            videoNodeEl[0].remove()
+        }
+        
+        let audioNodeEl = document.querySelectorAll(".audio-preview-content")
+        if(audioNodeEl.length == 2){
+            audioNodeEl[0].remove()
+        }
+
     return (
         <div
             className={clsx("premeeting-screen", classes.container, className)}

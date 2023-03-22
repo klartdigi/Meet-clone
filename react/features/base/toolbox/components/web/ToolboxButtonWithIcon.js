@@ -1,6 +1,7 @@
 // @flow
 
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 import { NOTIFY_CLICK_MODE } from '../../../../toolbox/constants';
 import { Icon } from '../../../icons';
@@ -103,11 +104,10 @@ export default function ToolboxButtonWithIcon(props: Props) {
         ariaHasPopup,
         ariaControls,
         ariaExpanded,
-        iconId
+        iconId,
     } = props;
 
     const iconProps = {};
-
     if (iconDisabled) {
         iconProps.className
             = 'settings-button-small-icon settings-button-small-icon--disabled';
@@ -120,7 +120,8 @@ export default function ToolboxButtonWithIcon(props: Props) {
                 );
             }
 
-            if (notifyMode !== NOTIFY_CLICK_MODE.PREVENT_AND_NOTIFY) {
+            if (notifyMode !== NOTIFY_CLICK_MODE.PREVENT_AND_NOTIFY ) {
+                
                 onIconClick();
             }
         };

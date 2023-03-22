@@ -157,6 +157,7 @@ class VideoSettingsButton extends Component<Props> {
                     notifyMode={notifyMode}
                     onIconClick={this._onClick}
                     onIconKeyDown={this._onEscClick}
+                    // onVisible = {this.props.value}
                 >
                     <VideoMuteButton
                         buttonKey={buttonKey}
@@ -180,6 +181,8 @@ function mapStateToProps(state) {
     const { permissions = {} } = state["features/base/devices"];
     const { isNarrowLayout } = state["features/base/responsive-ui"];
     const { clientWidth } = state['features/base/responsive-ui'];
+    const audioSettingsVisible = state['features/settings'];
+    console.log(audioSettingsVisible,"audioSettingsVisible");
     return {
         hasPermissions: permissions.video,
         hasVideoTrack: Boolean(getLocalJitsiVideoTrack(state)),
@@ -187,6 +190,7 @@ function mapStateToProps(state) {
         isOpen: getVideoSettingsVisibility(state),
         visible: !isMobileBrowser() && !isNarrowLayout,
         clientWidth: clientWidth,
+        // value: audioSettingsVisible
     };
 }
 

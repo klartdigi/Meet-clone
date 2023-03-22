@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import React,{useState} from 'react';
 
 import { Icon } from '../../../icons';
 import Popover from '../../../popover/components/Popover.web';
@@ -97,7 +97,7 @@ export default function ToolboxButtonWithIconPopup(props: Props) {
         styles,
         visible
     } = props;
-
+    
     const iconProps = {};
 
     if (iconDisabled) {
@@ -112,15 +112,16 @@ export default function ToolboxButtonWithIconPopup(props: Props) {
         iconProps.containerId = iconId;
     }
 
+   
 
     return (
         <div
-            className = 'settings-button-container'
+            className = 'settings-button-container' 
             styles = { styles }>
             {children}
             <div className = 'settings-button-small-icon-container'>
                 <Popover
-                    content = { popoverContent }
+                    content = {popoverContent }
                     headingLabel = { ariaLabel }
                     onPopoverClose = { onPopoverClose }
                     onPopoverOpen = { onPopoverOpen }

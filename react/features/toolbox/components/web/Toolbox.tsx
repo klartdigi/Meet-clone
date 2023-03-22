@@ -1434,7 +1434,6 @@ class Toolbox extends Component<IProps> {
             _clientWidth,
             t
         } = this.props;
-        console.log(_isMobile,"_isMobile");
         const toolbarAccLabel = 'toolbar.accessibilityLabel.moreActionsMenu';
         const containerClassName = `toolbox-content${_isMobile || _isNarrowLayout || _clientWidth < 1024 ? ' toolbox-content-mobile' : ''}`;
 
