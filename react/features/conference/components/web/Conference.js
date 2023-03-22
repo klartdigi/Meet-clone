@@ -219,6 +219,7 @@ class Conference extends AbstractConference<Props, *> {
             _showLobby,
             _showPrejoin,
             t,
+            clientWidth,
         } = this.props;
         const width = window.innerWidth;
         return (
@@ -264,7 +265,7 @@ class Conference extends AbstractConference<Props, *> {
                                 >
                                     {t("toolbar.accessibilityLabel.heading")}
                                 </span>
-                                {width < 1024  && <Toolbox />}
+                                {clientWidth < 1024  && <Toolbox />}
                             </>
                         )}
                     </span>
@@ -427,7 +428,7 @@ function _mapStateToProps(state) {
     const { backgroundAlpha, mouseMoveCallbackInterval } =
         state["features/base/config"];
     const { overflowDrawer } = state["features/toolbox"];
-
+    const { clientWidth } = state['features/base/responsive-ui'];
     return {
         ...abstractMapStateToProps(state),
         _backgroundAlpha: backgroundAlpha,
@@ -438,6 +439,7 @@ function _mapStateToProps(state) {
         _roomName: getConferenceNameForTitle(state),
         _showLobby: getIsLobbyVisible(state),
         _showPrejoin: isPrejoinPageVisible(state),
+        clientWidth:clientWidth,
     };
 }
 

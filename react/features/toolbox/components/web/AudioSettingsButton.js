@@ -131,12 +131,13 @@ class AudioSettingsButton extends Component<Props> {
             buttonKey,
             notifyMode,
             t,
+            clientWidth,
         } = this.props;
         const settingsDisabled =
             !hasPermissions ||
             isDisabled ||
             !JitsiMeetJS.mediaDevices.isMultipleAudioInputSupported();
-        return visible ? (
+        return clientWidth > 1024 ? (
             <AudioSettingsPopup>
                 <ToolboxButtonWithIcon
                     ariaControls="audio-settings-dialog"
@@ -173,12 +174,13 @@ class AudioSettingsButton extends Component<Props> {
 function mapStateToProps(state) {
     const { permissions = {} } = state["features/base/devices"];
     const { isNarrowLayout } = state["features/base/responsive-ui"];
-
+    const { clientWidth } = state['features/base/responsive-ui'];
     return {
         hasPermissions: permissions.audio,
         isDisabled: isAudioSettingsButtonDisabled(state),
         isOpen: getAudioSettingsVisibility(state),
         visible: !isMobileBrowser() && !isNarrowLayout,
+        clientWidth: clientWidth,
     };
 }
 

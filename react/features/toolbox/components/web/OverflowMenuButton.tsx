@@ -5,6 +5,7 @@ import { makeStyles } from 'tss-react/mui';
 
 import { createToolbarEvent } from '../../../analytics/AnalyticsEvents';
 import { sendAnalytics } from '../../../analytics/functions';
+import { IReduxState } from '../../../app/types';
 import Popover from '../../../base/popover/components/Popover.web';
 // @ts-ignore
 import { ReactionEmoji, ReactionsMenu } from '../../../reactions/components';
@@ -68,7 +69,7 @@ const OverflowMenuButton = ({
     const { classes } = useStyles();
     const overflowDrawer = useSelector(showOverflowDrawer);
     const reactionsQueue = useSelector(getReactionsQueue);
-
+    const clientWidth = useSelector((state: IReduxState) => state['features/base/responsive-ui'].clientWidth);
     const onCloseDialog = useCallback(() => {
         onVisibilityChange(false);
     }, [ onVisibilityChange ]);
@@ -94,7 +95,7 @@ const OverflowMenuButton = ({
     return (
         <div className = 'toolbox-button-wth-dialog context-menu'>
             {
-                overflowDrawer ? (
+                Boolean(clientWidth < 1024) ? (
                     <>
                         <OverflowToggleButton
                             handleClick = { toggleDialogVisibility }

@@ -581,8 +581,8 @@ class Toolbox extends Component<IProps> {
             return null;
         }
 
-        const { _chatOpen, _visible, _toolbarButtons } = this.props;
-        const rootClassNames = `new-toolbox ${_visible ? 'visible' : ''} ${
+        const { _chatOpen, _visible, _toolbarButtons,_clientWidth } = this.props;
+        const rootClassNames = `new-toolbox ${_clientWidth < 1024 ? 'visible' : ''} ${
             _toolbarButtons.length ? '' : 'no-buttons'} ${_chatOpen ? 'shift-right' : ''}`;
 
         return (
@@ -1030,8 +1030,9 @@ class Toolbox extends Component<IProps> {
 
         this._setButtonsNotifyClickMode(buttons);
         const isHangupVisible = isToolbarButtonEnabled('hangup', _toolbarButtons);
-        const { order } = THRESHOLDS.find(({ width }) => _clientWidth > width)
+        const { order } = THRESHOLDS.find(({width}) => _clientWidth > width)
             || THRESHOLDS[THRESHOLDS.length - 1];
+            
         let sliceIndex = order.length + 2;
 
         const keys = Object.keys(buttons);
@@ -1050,6 +1051,7 @@ class Toolbox extends Component<IProps> {
 
         // This implies that the overflow button will be displayed, so save some space for it.
         if (sliceIndex < filtered.length) {
+            
             sliceIndex -= 1;
         }
 
@@ -1429,15 +1431,15 @@ class Toolbox extends Component<IProps> {
             _reactionsEnabled,
             _toolbarButtons,
             classes,
+            _clientWidth,
             t
         } = this.props;
         console.log(_isMobile,"_isMobile");
-        const width =  window.innerWidth
         const toolbarAccLabel = 'toolbar.accessibilityLabel.moreActionsMenu';
-        const containerClassName = `toolbox-content${true || _isNarrowLayout ? ' toolbox-content-mobile' : ''}`;
+        const containerClassName = `toolbox-content${_isMobile || _isNarrowLayout || _clientWidth < 1024 ? ' toolbox-content-mobile' : ''}`;
 
         const { mainMenuButtons, overflowMenuButtons } = this._getVisibleButtons();
-
+        
         return (
             <div className = { containerClassName }>
                 <div
@@ -1455,7 +1457,6 @@ class Toolbox extends Component<IProps> {
                                 { ...rest }
                                 buttonKey = { key }
                                 key = { key } />))}
-
                         {Boolean(overflowMenuButtons.length) && (
                             <OverflowMenuButton
                                 ariaControls = 'overflow-menu'
@@ -1463,14 +1464,14 @@ class Toolbox extends Component<IProps> {
                                 key = 'overflow-menu'
                                 onVisibilityChange = { this._onSetOverflowVisible }
                                 showMobileReactions = {
-                                    _reactionsEnabled && (_isMobile || _isNarrowLayout || width <800 )
+                                    _reactionsEnabled && ( _isNarrowLayout || Boolean(_clientWidth < 1024))
                                 }>
                                 <ContextMenu
                                     accessibilityLabel = { t(toolbarAccLabel) }
                                     className = { classes.contextMenu }
                                     hidden = { false }
                                     id = 'overflow-context-menu'
-                                    inDrawer = { _overflowDrawer }
+                                    inDrawer = { Boolean(_clientWidth < 1024) }
                                     onKeyDown = { this._onEscKey }>
                                     {overflowMenuButtons.reduce((acc, val) => {
                                         if (acc.length) {
@@ -1478,6 +1479,7 @@ class Toolbox extends Component<IProps> {
                                             const group = prev[prev.length - 1].group;
 
                                             if (group === val.group) {
+                                                
                                                 prev.push(val);
                                             } else {
                                                 acc.push([ val ]);
@@ -1491,7 +1493,8 @@ class Toolbox extends Component<IProps> {
                                         <ContextMenuItemGroup key = { `group-${buttonGroup[0].group}` }>
                                             {buttonGroup.map(({ key, Content, ...rest }: any) => (
                                                 key !== 'raisehand' || !_reactionsEnabled)
-                                                && <Content
+                                                && 
+                                                <Content
                                                     { ...rest }
                                                     buttonKey = { key }
                                                     contextMenu = { true }
@@ -1568,6 +1571,7 @@ function _mapStateToProps(state: IReduxState, ownProps: Partial<IProps>) {
     const localParticipant = getLocalParticipant(state);
     const localVideo = getLocalVideoTrack(state['features/base/tracks']);
     const { clientWidth } = state['features/base/responsive-ui'];
+    
     let toolbarButtons = ownProps.toolbarButtons || getToolbarButtons(state);
 
     if (iAmVisitor(state)) {

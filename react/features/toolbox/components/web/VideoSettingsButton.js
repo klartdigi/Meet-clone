@@ -140,9 +140,9 @@ class VideoSettingsButton extends Component<Props> {
      * @inheritdoc
      */
     render() {
-        const { t, visible, isOpen, buttonKey, notifyMode } = this.props;
+        const { t, visible, isOpen, buttonKey, notifyMode ,clientWidth} = this.props;
 
-        return visible ? (
+        return clientWidth > 1024 ? (
             <VideoSettingsPopup>
                 <ToolboxButtonWithIcon
                     ariaControls="video-settings-dialog"
@@ -179,13 +179,14 @@ class VideoSettingsButton extends Component<Props> {
 function mapStateToProps(state) {
     const { permissions = {} } = state["features/base/devices"];
     const { isNarrowLayout } = state["features/base/responsive-ui"];
-
+    const { clientWidth } = state['features/base/responsive-ui'];
     return {
         hasPermissions: permissions.video,
         hasVideoTrack: Boolean(getLocalJitsiVideoTrack(state)),
         isDisabled: isVideoSettingsButtonDisabled(state),
         isOpen: getVideoSettingsVisibility(state),
         visible: !isMobileBrowser() && !isNarrowLayout,
+        clientWidth: clientWidth,
     };
 }
 

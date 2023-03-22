@@ -34,14 +34,14 @@ const useStyles = makeStyles()((theme) => {
             height: "125px",
             borderRadius: "24px",
             backgroundColor: theme.palette.ui01,
-            "@media (max-width: 768px)": {
+            "@media (max-width: 1024px)": {
                 backgroundColor: "transparent",
                 position: "absolute",
                 right: "-93px",
                 height: "80px",
                 top: "30px",
             },
-            "@media screen and (min-width:768px) and (max-width: 1240px)": {
+            "@media screen and (min-width:1024px) and (max-width: 1240px)": {
                 margin:"0 auto",
                 float:'none',
                 maxWidth:"90%"
@@ -54,7 +54,7 @@ const useStyles = makeStyles()((theme) => {
             display: "flex",
             flexDirection: "column",
             zIndex: 252,
-            "@media (max-width: 768px)": {
+            "@media (max-width: 1024px)": {
                 flexDirection: "column",
             },
         },
@@ -69,15 +69,15 @@ const useStyles = makeStyles()((theme) => {
         },
         toolboxweb: {
             marginLeft: "20px",
-            "@media (max-width: 768px)": {
+            "@media (max-width: 1024px)": {
                 display: "none",
             },
-            "@media screen and (min-width:768px) and (max-width: 1240px)": {
+            "@media screen and (min-width:1024px) and (max-width: 1240px)": {
                 marginLeft: "0px !important",
             },
         },
         sub: {
-            "@media (max-width: 768px)": {
+            "@media (max-width: 1024px)": {
                 display: "none",
             },
         },
