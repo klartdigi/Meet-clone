@@ -175,7 +175,10 @@ class Watermarks extends Component<Props, State> {
                // backgroundImage: 'url(../../../../../../images/virtual-background/wytbglogo.svg)',
                 // maxWidth: '30%',
                 // maxHeight: '30%',
+
                 position: _logoLink ? 'absolute' : 'absolute',
+                transition: 'all 0.5s ease',
+
                 '@media (max-width: 500px)': {
                     backgroundImage: 'url(../../../../../../images/virtual-background/bglogoNormal.svg)',
                   },
