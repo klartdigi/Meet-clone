@@ -192,7 +192,32 @@ div.hangup-menu-button {
 
 /**
  * On small mobile devices make the toolbar full width and pad the invite prompt.
+
  */
+    // @media (max-width: 1024px) {
+
+    //     .toolbox-content-wrapper {
+    //         width: 100%;
+    //     }
+
+    //     .toolbox-content-items {
+    //         @include ltr;
+    //         border-radius: 0;
+    //         display: flex;
+    //         justify-content: space-evenly;
+    //         padding: 8px 0;
+    //         width: 100%;
+    //         background-color: black;
+    //     }
+
+    //     .invite-more-container {
+    //         margin: 0 16px 8px;
+    //     }
+
+    //     .invite-more-container.elevated {
+    //         margin-bottom: 52px;
+    //     }
+    // }
 .toolbox-content-mobile {
     @media (max-width: 1024px) {
         margin-bottom: 0;

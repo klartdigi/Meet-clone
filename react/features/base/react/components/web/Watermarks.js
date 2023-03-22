@@ -172,7 +172,7 @@ class Watermarks extends Component<Props, State> {
 
         if (_showJitsiWatermark) {
             const style = {
-                backgroundImage: 'url(../../../../../../images/virtual-background/wytbglogo.svg)',
+               // backgroundImage: 'url(../../../../../../images/virtual-background/wytbglogo.svg)',
                 // maxWidth: '30%',
                 // maxHeight: '30%',
                 position: _logoLink ? 'absolute' : 'absolute',

@@ -104,15 +104,17 @@ class AudioSettingsButton extends Component<Props> {
      * @returns {void}
      */
     _onClick() {
-        const { onAudioOptionsClick } = this.props;
-        setTimeout(() => {
-            const querySelect = document.querySelectorAll(".Popover");
-            querySelect.length &&
-                document
-                    .querySelectorAll(".Popover")
-                    [querySelect.length == 2 ? 0 : 1].remove();
-        });
-        onAudioOptionsClick();
+        if (!this.props.isOpen) {
+            const { onAudioOptionsClick } = this.props;
+            setTimeout(() => {
+                const querySelect = document.querySelectorAll(".Popover");
+                querySelect.length &&
+                    document
+                        .querySelectorAll(".Popover")
+                        [querySelect.length == 2 ? 0 : 1].remove();
+            });
+            onAudioOptionsClick();
+        }
     }
 
     /**

@@ -1431,9 +1431,10 @@ class Toolbox extends Component<IProps> {
             classes,
             t
         } = this.props;
-
+        console.log(_isMobile,"_isMobile");
+        const width =  window.innerWidth
         const toolbarAccLabel = 'toolbar.accessibilityLabel.moreActionsMenu';
-        const containerClassName = `toolbox-content${_isMobile || _isNarrowLayout ? ' toolbox-content-mobile' : ''}`;
+        const containerClassName = `toolbox-content${true || _isNarrowLayout ? ' toolbox-content-mobile' : ''}`;
 
         const { mainMenuButtons, overflowMenuButtons } = this._getVisibleButtons();
 
@@ -1445,7 +1446,8 @@ class Toolbox extends Component<IProps> {
                     { ...(_isMobile ? {} : {
                         onMouseOut: this._onMouseOut,
                         onMouseOver: this._onMouseOver
-                    }) }>
+                    }) }
+                    >
 
                     <div className = 'toolbox-content-items'>
                         {mainMenuButtons.map(({ Content, key, ...rest }) => Content !== Separator && (
@@ -1461,7 +1463,7 @@ class Toolbox extends Component<IProps> {
                                 key = 'overflow-menu'
                                 onVisibilityChange = { this._onSetOverflowVisible }
                                 showMobileReactions = {
-                                    _reactionsEnabled && (_isMobile || _isNarrowLayout)
+                                    _reactionsEnabled && (_isMobile || _isNarrowLayout || width <800 )
                                 }>
                                 <ContextMenu
                                     accessibilityLabel = { t(toolbarAccLabel) }
