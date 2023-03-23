@@ -191,14 +191,15 @@ class Watermarks extends Component<Props, State> {
 
             if (_logoLink) {
                 reactElement = (
-                    <a
+                    <div
                         aria-label = { t('jitsiHome', { logo: interfaceConfig.APP_NAME }) }
                         className = { className }
-                        href = { _logoLink }
-                        target = '_new'>
+                        // href = { _logoLink }
+                        // target = '_new'
+                        >
                         { reactElement }
                     
-                    </a>
+                    </div>
                 );
             }
         }
