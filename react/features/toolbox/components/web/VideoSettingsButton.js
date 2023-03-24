@@ -182,7 +182,6 @@ function mapStateToProps(state) {
     const { isNarrowLayout } = state["features/base/responsive-ui"];
     const { clientWidth } = state['features/base/responsive-ui'];
     const audioSettingsVisible = state['features/settings'];
-    console.log(audioSettingsVisible,"audioSettingsVisible");
     return {
         hasPermissions: permissions.video,
         hasVideoTrack: Boolean(getLocalJitsiVideoTrack(state)),

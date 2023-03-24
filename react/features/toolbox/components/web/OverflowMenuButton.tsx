@@ -95,7 +95,7 @@ const OverflowMenuButton = ({
     return (
         <div className = 'toolbox-button-wth-dialog context-menu'>
             {
-                Boolean(clientWidth < 1024) ? (
+                Boolean(clientWidth <= 1024) ? (
                     <>
                         <OverflowToggleButton
                             handleClick = { toggleDialogVisibility }

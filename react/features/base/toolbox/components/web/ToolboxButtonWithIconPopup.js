@@ -1,12 +1,12 @@
 // @flow
 
-import React,{useState} from 'react';
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
-import { Icon } from '../../../icons';
-import Popover from '../../../popover/components/Popover.web';
+import { Icon } from "../../../icons";
+import Popover from "../../../popover/components/Popover.web";
 
 type Props = {
-
     /**
      * Whether the element popup is expanded.
      */
@@ -70,7 +70,9 @@ type Props = {
     /**
      * Whether or not the popover is visible.
      */
-    visible: boolean
+    visible: boolean,
+
+    iconClick: Function,
 };
 
 declare var APP: Object;
@@ -95,46 +97,54 @@ export default function ToolboxButtonWithIconPopup(props: Props) {
         onPopoverOpen,
         popoverContent,
         styles,
-        visible
+        visible,
+        iconClick,
     } = props;
-    
+
     const iconProps = {};
 
     if (iconDisabled) {
-        iconProps.className
-            = 'settings-button-small-icon settings-button-small-icon--disabled';
+        iconProps.className =
+            "settings-button-small-icon settings-button-small-icon--disabled";
     } else {
-        iconProps.className = 'settings-button-small-icon';
-        iconProps.role = 'button';
+        iconProps.className = "settings-button-small-icon";
+        iconProps.role = "button";
         iconProps.tabIndex = 0;
         iconProps.ariaControls = ariaControls;
         iconProps.ariaExpanded = ariaExpanded;
         iconProps.containerId = iconId;
+        iconProps.onClick = () => {
+            iconClick();
+        };
     }
 
-   
+    const clientWidth = useSelector(
+        (state) => state["features/base/responsive-ui"].clientWidth
+    );
 
     return (
-        <div
-            className = 'settings-button-container' 
-            styles = { styles }>
+        <div className="settings-button-container" styles={styles}>
             {children}
-            <div className = 'settings-button-small-icon-container'>
-                <Popover
-                    content = {popoverContent }
-                    headingLabel = { ariaLabel }
-                    onPopoverClose = { onPopoverClose }
-                    onPopoverOpen = { onPopoverOpen }
-                    position = 'bottom'
-                    visible = { visible }>
-                    <Icon
-                        { ...iconProps }
-                        ariaHasPopup = { ariaHasPopup }
-                        ariaLabel = { ariaLabel }
-                        size = { 16 }
-                        src = { icon } />
-                </Popover>
-            </div>
+            {clientWidth >= 1024 && (
+                <div className="settings-button-small-icon-container">
+                    <Popover
+                        content={popoverContent}
+                        headingLabel={ariaLabel}
+                        //  onPopoverClose = { onPopoverClose }
+                        // onPopoverOpen = { onPopoverOpen }
+                        position="bottom"
+                        visible={visible}
+                    >
+                        <Icon
+                            {...iconProps}
+                            ariaHasPopup={ariaHasPopup}
+                            ariaLabel={ariaLabel}
+                            size={16}
+                            src={icon}
+                        />
+                    </Popover>
+                </div>
+            )}
         </div>
     );
 }

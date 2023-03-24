@@ -1463,8 +1463,9 @@ class Toolbox extends Component<IProps> {
                                 key = 'overflow-menu'
                                 onVisibilityChange = { this._onSetOverflowVisible }
                                 showMobileReactions = {
-                                    _reactionsEnabled && ( _isNarrowLayout || Boolean(_clientWidth < 1024))
-                                }>
+                                    _reactionsEnabled && ( _isNarrowLayout || Boolean(_clientWidth <= 1024))
+                                }
+                                >
                                 <ContextMenu
                                     accessibilityLabel = { t(toolbarAccLabel) }
                                     className = { classes.contextMenu }

@@ -221,7 +221,17 @@ class Conference extends AbstractConference<Props, *> {
             t,
             clientWidth,
         } = this.props;
-        const width = window.innerWidth;
+
+        let reactionNodeEl = document.querySelectorAll(".reactions-menu-container")
+        if(reactionNodeEl.length == 2){
+            console.log(reactionNodeEl,"reactionNodeEl");
+            reactionNodeEl[1].remove()
+        }
+        // let reactionNodeEl = document.querySelectorAll(".popover")
+        // if(reactionNodeEl.length == 2){
+        //     console.log(reactionNodeEl,"reactionNodeEl");
+        //     reactionNodeEl[1].remove()
+        // }
         return (
             <div
                 id="layout_wrapper"

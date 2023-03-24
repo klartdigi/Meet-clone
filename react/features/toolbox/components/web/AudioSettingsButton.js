@@ -8,7 +8,7 @@ import { IconArrowUp } from "../../../base/icons";
 import JitsiMeetJS from "../../../base/lib-jitsi-meet/_";
 import { connect } from "../../../base/redux";
 import { ToolboxButtonWithIcon } from "../../../base/toolbox/components";
-import { AudioSettingsPopup, toggleAudioSettings ,toggleVideoSettings} from "../../../settings";
+import { AudioSettingsPopup, toggleAudioSettings } from "../../../settings";
 import { getAudioSettingsVisibility } from "../../../settings/functions";
 import { isAudioSettingsButtonDisabled } from "../../functions";
 import AudioMuteButton from "../AudioMuteButton";
@@ -106,7 +106,6 @@ class AudioSettingsButton extends Component<Props> {
      * @returns {void}
      */
     _onClick() {
-
 
         if (!this.props.isOpen) {
             const { onAudioOptionsClick } = this.props;

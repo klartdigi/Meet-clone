@@ -38,11 +38,11 @@
 
 .popover-mousemove-padding-top {
     @extend %horizontal-popover-padding;
-    top: -40px;
+    // top: -40px;
 }
 
 .popover {
-     margin: -16px -24px;
+     margin: -7px -24px;
     z-index: $popoverZ;
 }
 
