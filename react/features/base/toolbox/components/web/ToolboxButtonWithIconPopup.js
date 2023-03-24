@@ -73,6 +73,7 @@ type Props = {
     visible: boolean,
 
     iconClick: Function,
+
 };
 
 declare var APP: Object;
@@ -117,7 +118,6 @@ export default function ToolboxButtonWithIconPopup(props: Props) {
             iconClick();
         };
     }
-
     const clientWidth = useSelector(
         (state) => state["features/base/responsive-ui"].clientWidth
     );
@@ -130,10 +130,11 @@ export default function ToolboxButtonWithIconPopup(props: Props) {
                     <Popover
                         content={popoverContent}
                         headingLabel={ariaLabel}
-                        //  onPopoverClose = { onPopoverClose }
+                        onPopoverClose = { onPopoverClose }
                         // onPopoverOpen = { onPopoverOpen }
                         position="bottom"
-                        visible={visible}
+                        visible={visible} 
+                        trigger="click"
                     >
                         <Icon
                             {...iconProps}

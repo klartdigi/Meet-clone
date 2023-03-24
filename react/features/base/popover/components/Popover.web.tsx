@@ -78,6 +78,7 @@ interface IProps {
      */
     trigger?: 'hover' | 'click';
 
+
     /**
      * Whether the popover is visible or not.
      */
@@ -115,7 +116,7 @@ class Popover extends Component<IProps, IState> {
     static defaultProps = {
         className: '',
         id: '',
-        trigger: 'hover'
+        trigger: 'hover',
     };
 
     /**
@@ -187,6 +188,7 @@ class Popover extends Component<IProps, IState> {
      * @returns {void}
      */
     _onOutsideClick(e: React.MouseEvent) { // @ts-ignore
+        
         if (!this._containerRef?.current?.contains(e.target) && this.props.visible) {
             this._onHideDialog();
         }
@@ -227,10 +229,9 @@ class Popover extends Component<IProps, IState> {
                 </div>
             );
         }
-        
         return (
             <div
-                className = { className }
+                className = { className } 
                 id = { id }
                 onClick = { this._onClick }
                 onKeyPress = { this._onKeyPress }

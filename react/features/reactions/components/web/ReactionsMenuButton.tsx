@@ -84,17 +84,20 @@ function ReactionsMenuButton({
         dispatch(toggleReactionsMenuVisibility());
     }, [dispatch]);
 
-    const openReactionsMenu = useCallback(() => {
-        if (visible) {
-            dispatch(toggleReactionsMenuVisibility());
-        }
-        if (!visible) {
+    const openReactionsMenu =() => {
+        console.log("isOpen1",isOpen);
+        // if (isOpen) {
+        //     console.log("isOpen",isOpen);
+        //     setTimeout(()=>{
+        //         dispatch(toggleReactionsMenuVisibility());
+
+        //     })
+        // }
+        if (!isOpen  ) {
             toggleReactionsMenu();
         }
-    }, [visible, toggleReactionsMenu]);
-    // const closeClick = () => {
-    //         dispatch(toggleReactionsMenuVisibility());
-    // };
+    }
+ 
 
     const reactionsMenu = (
         <div className="reactions-menu-container">
@@ -102,8 +105,9 @@ function ReactionsMenuButton({
         </div>
     );
 
+    
     return (
-        <div className="reactions-menu-popup-container">
+        <div className="reactions-menu-popup-container" >
             {!_reactionsEnabled || isNarrow ? (
                 <RaiseHandButton
                     buttonKey={buttonKey}
@@ -119,11 +123,11 @@ function ReactionsMenuButton({
                     icon={IconArrowUp}
                     iconDisabled={false}
                     iconId="reactions-menu-button"
-                    //   onPopoverClose = { closeClick }
+                     onPopoverClose = { toggleReactionsMenu }
                     // onPopoverOpen = { openReactionsMenu }
                     iconClick={openReactionsMenu}
-                    popoverContent={reactionsMenu}
-                    visible={visible}
+                    popoverContent={ reactionsMenu}
+                    visible={isOpen}
                 >
                     <RaiseHandButton
                         buttonKey={buttonKey}
