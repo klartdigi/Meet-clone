@@ -265,7 +265,7 @@ class Conference extends AbstractConference<Props, *> {
                                 >
                                     {t("toolbar.accessibilityLabel.heading")}
                                 </span>
-                                {clientWidth < 1024  && <Toolbox />}
+                                {clientWidth <= 1024  && <Toolbox />}
                             </>
                         )}
                     </span>

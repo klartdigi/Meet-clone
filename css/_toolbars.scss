@@ -218,8 +218,9 @@ div.hangup-menu-button {
     //         margin-bottom: 52px;
     //     }
     // }
-.toolbox-content-mobile {
     @media (max-width: 1024px) {
+.toolbox-content-mobile {
+  
         margin-bottom: 0;
 
         .toolbox-content-wrapper {

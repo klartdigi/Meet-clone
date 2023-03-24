@@ -582,7 +582,7 @@ class Toolbox extends Component<IProps> {
         }
 
         const { _chatOpen, _visible, _toolbarButtons,_clientWidth } = this.props;
-        const rootClassNames = `new-toolbox ${_clientWidth < 1024 ? 'visible' : ''} ${
+        const rootClassNames = `new-toolbox ${_clientWidth <= 1024 ? 'visible' : ''} ${
             _toolbarButtons.length ? '' : 'no-buttons'} ${_chatOpen ? 'shift-right' : ''}`;
 
         return (
@@ -1435,7 +1435,7 @@ class Toolbox extends Component<IProps> {
             t
         } = this.props;
         const toolbarAccLabel = 'toolbar.accessibilityLabel.moreActionsMenu';
-        const containerClassName = `toolbox-content${_isMobile || _isNarrowLayout || _clientWidth < 1024 ? ' toolbox-content-mobile' : ''}`;
+        const containerClassName = `toolbox-content${_isMobile || _isNarrowLayout || _clientWidth <= 1024 ? ' toolbox-content-mobile' : ''}`;
 
         const { mainMenuButtons, overflowMenuButtons } = this._getVisibleButtons();
         

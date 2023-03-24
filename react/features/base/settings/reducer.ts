@@ -88,6 +88,7 @@ export interface ISettingsState {
     };
     userSelectedSkipPrejoin?: boolean;
     videoSettingsVisible?: boolean;
+    reactionSettingsVisible?: boolean;
     visible?: boolean;
 }
 

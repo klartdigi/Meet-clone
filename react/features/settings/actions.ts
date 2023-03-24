@@ -16,7 +16,8 @@ import virtualBackgroundLogger from '../virtual-background/logger';
 
 import {
     SET_AUDIO_SETTINGS_VISIBILITY,
-    SET_VIDEO_SETTINGS_VISIBILITY
+    SET_VIDEO_SETTINGS_VISIBILITY,
+    SET_REACTION_SETTINGS_VISIBILITY,
 } from './actionTypes';
 // eslint-disable-next-line lines-around-comment
 // @ts-ignore
@@ -79,6 +80,13 @@ function setAudioSettingsVisibility(value: boolean) {
 function setVideoSettingsVisibility(value: boolean) {
     return {
         type: SET_VIDEO_SETTINGS_VISIBILITY,
+        value
+    };
+}
+
+function setReactionSettingsVisibility(value: boolean) {
+    return {
+        type: SET_REACTION_SETTINGS_VISIBILITY,
         value
     };
 }
@@ -237,6 +245,13 @@ export function toggleVideoSettings() {
     };
 }
 
+export function toggleReactionSettings() {
+    return (dispatch: IStore['dispatch'], getState: IStore['getState']) => {
+        const value = getState()['features/settings'].reactionSettingsVisible;
+
+        dispatch(setVideoSettingsVisibility(!value));
+    };
+}
 /**
  * Submits the settings from the "Shortcuts" tab of the settings dialog.
  *

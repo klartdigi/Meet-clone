@@ -3,7 +3,7 @@
  */
 export const THRESHOLDS = [
     {
-        width: 1024,
+        width: 1025,
         order: [ 'microphone', 'camera', 'desktop', 'chat', 'raisehand', 'participants', 'tileview' ]
     },
     {
