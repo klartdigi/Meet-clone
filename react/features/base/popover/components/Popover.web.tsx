@@ -235,11 +235,11 @@ class Popover extends Component<IProps, IState> {
                 id = { id }
                 onClick = { this._onClick }
                 onKeyPress = { this._onKeyPress }
-                // { ...(trigger === 'hover' ? {
-                //     onMouseEnter: this._onShowDialog,
-                //     onMouseLeave: this._onHideDialog,
-                //     tabIndex: 0
-                // } : {}) }
+                { ...(trigger === 'hover' ? {
+                    onMouseEnter: this._onShowDialog,
+                    onMouseLeave: this._onHideDialog,
+                    tabIndex: 0
+                } : {}) }
                 ref = { this._containerRef }>
                 { visible && (
                     <DialogPortal
