@@ -368,7 +368,7 @@ const styles = () => {
             right: 'auto',
             margin: 0,
             marginBottom: '8px',
-            maxHeight: 'calc(100vh - 100px)',
+            maxHeight: 'calc(90vh - 100px)',
             minWidth: '240px'
         },
 
@@ -1506,7 +1506,7 @@ class Toolbox extends Component<IProps> {
                         )}
 
                         { isToolbarButtonEnabled('hangup', _toolbarButtons) && (
-                            _endConferenceSupported
+                            _endConferenceSupported && _clientWidth > 1025
                                 ? <HangupMenuButton
                                     ariaControls = 'hangup-menu'
                                     isOpen = { _hangupMenuVisible }

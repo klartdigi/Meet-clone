@@ -140,7 +140,7 @@ const useStyles = makeStyles()(theme => {
             maxHeight: `${MAX_HEIGHT}px`,
             overflowY: 'auto',
             padding: `${theme.spacing(2)} 0`,
-            height:"500px",
+            height:"auto",
         },
 
         contextMenuHidden: {

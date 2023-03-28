@@ -91,7 +91,7 @@ class HangupMenuButton extends Component<IProps> {
                     content = { children }
                     headingLabel = { t('toolbar.accessibilityLabel.hangup') }
                     onPopoverClose = { this._onCloseDialog }
-                    position = 'top'
+                    position = 'bottom'
                     trigger = 'click'
                     visible = { isOpen }>
                     <HangupToggleButton

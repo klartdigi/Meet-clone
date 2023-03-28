@@ -227,10 +227,10 @@ class Conference extends AbstractConference<Props, *> {
             console.log(reactionNodeEl,"reactionNodeEl");
             reactionNodeEl[1].remove()
         }
-        // let reactionNodeEl = document.querySelectorAll(".popover")
-        // if(reactionNodeEl.length == 2){
-        //     console.log(reactionNodeEl,"reactionNodeEl");
-        //     reactionNodeEl[1].remove()
+        // let moreActionEL = document.querySelectorAll(".More actions menu")
+        // if(moreActionEL.length == 2){
+        //     console.log(moreActionEL,"moreActionEL");
+        //     moreActionEL[0].remove()
         // }
         return (
             <div
